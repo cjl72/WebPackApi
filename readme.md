@@ -24,3 +24,10 @@ Turn on github pages and put a link to your site in the readme when you turn in 
 Working site here:
 
 http://www.webizly.com/BasicWebPack/
+
+![POST](images/POST.PNG)
+![GET](images/GET-.PNG)
+![PUT](images/PUT.PNG)
+![DELETE](images/DELETE.PNG)
+![DELETED CONTENT](images/DELETE_GET.PNG)
+
