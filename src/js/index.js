@@ -28,6 +28,5 @@ getJSON('http://localhost:8000/api/v1/cities',
        generateTableHead(table, data); // then the head
       */
     }
-
   });
 ConsoleLogIt('this worked in the bundle');
