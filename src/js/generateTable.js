@@ -1,3 +1,4 @@
+/* global document */
 export default function generateTable(table, data) {
   for (const element of data) {
     const row = table.insertRow();
