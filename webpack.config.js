@@ -12,10 +12,21 @@ module.exports = {
     entry: {
         index: './src/js/index.js',
     },
+    module: {
+        rules: [
+            {
+                test: /\.(js)$/,
+                exclude: /node_modules/,
+                use: ["babel-loader", "eslint-loader"]
+            }
+        ]
+    },
+    resolve: {
+      extensions: ['*', '.js']
+    },
     output: {
         path: path.resolve(__dirname, 'docs'),
         filename: 'js/bundle.js',
-        clean: true,
     },
     plugins: [
         new CopyPlugin({

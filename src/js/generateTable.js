@@ -1,12 +1,11 @@
 export default function generateTable(table, data) {
-    for (let element of data) {
-        let row = table.insertRow();
-        console.log(element);
-        let key;
-        for (key in element) {
-            let cell = row.insertCell();
-            let text = document.createTextNode(element[key]);
-            cell.appendChild(text);
-        }
+  for (const element of data) {
+    const row = table.insertRow();
+    console.log(element);
+    for (const key in element) {
+      const cell = row.insertCell();
+      const text = document.createTextNode(element[key]);
+      cell.appendChild(text);
     }
+  }
 }
