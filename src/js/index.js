@@ -1,3 +1,5 @@
+/* global document */
+
 import TestJS from './TestJs';
 import ConsoleLogIt from './ConsoleLogIt';
 import getJSON from './getJSON';
