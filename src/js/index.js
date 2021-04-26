@@ -1,4 +1,4 @@
-/* global document */
+/* global document, alert */
 
 import TestJS from './TestJs';
 import ConsoleLogIt from './ConsoleLogIt';
@@ -17,9 +17,9 @@ getJSON('http://localhost:8000/api/v1/cities',
       alert('Something went wrong: ' + err);
     }
     else {
-      let table = document.querySelector('table');
-      let data = Object.keys((records.data[0]));
-      let dataRecords = records.data;
+      const table = document.querySelector('table');
+      const data = Object.keys((records.data[0]));
+      const dataRecords = records.data;
 
       generateTableHead(table, data);
       generateTable(table, dataRecords);
