@@ -1,4 +1,5 @@
 const CopyPlugin = require("copy-webpack-plugin");
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -12,10 +13,18 @@ module.exports = {
     entry: {
         index: './src/js/index.js',
     },
+    module: {
+        rules: [
+            {
+                test: /\.(js)$/,
+                exclude: /node_modules/,
+                use: ["babel-loader", "eslint-loader"]
+            }
+        ]
+    },
     output: {
         path: path.resolve(__dirname, 'docs'),
         filename: 'js/bundle.js',
-        clean: true,
     },
     plugins: [
         new CopyPlugin({
