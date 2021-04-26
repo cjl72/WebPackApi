@@ -22,6 +22,9 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+      extensions: ['*', '.js']
+    },
     output: {
         path: path.resolve(__dirname, 'docs'),
         filename: 'js/bundle.js',
