@@ -7,6 +7,7 @@ const expressSession = require('express-session');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 require('dotenv').config();
+const authRouter = require('./auth');
 
 const app = express();
 app.use(cors());
@@ -36,16 +37,7 @@ const strategy = new Auth0Strategy(
     clientSecret: process.env.AUTH0_CLIENT_SECRET,
     callbackURL: process.env.AUTH0_CALLBACK_URL,
   },
-  ((accessToken, refreshToken, extraParams, profile, done) =>
-    /**
-     * Access tokens are used to authorize users to an API
-     * (resource server)
-     * accessToken is the token to call the Auth0 API
-     * or a secured third-party API
-     * extraParams.id_token has the JSON Web Token
-     * profile has all the information from the user
-     */
-    done(null, profile)
+  ((accessToken, refreshToken, extraParams, profile, done) => done(null, profile)
   ),
 );
 
@@ -80,11 +72,12 @@ const citiesRoutes = require('./routes/cities.routes');
 
 // using as middleware
 app.use('/api/v1/cities', citiesRoutes);
+app.use('/', authRouter);
 
 app.set('port', process.env.PORT || 8000);
 app.set('ip', process.env.NODEJS_IP || '127.0.0.1');
 
 app.listen(app.get('port'), () => {
   console.log('%s: Node server started on %s ...', Date(Date.now()), app.get('port'));
-  open('http://localhost:8000');
+  open('http://localhost:8000/login');
 });
