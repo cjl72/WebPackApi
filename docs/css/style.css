@@ -28,13 +28,6 @@ h6 {
     margin-left: auto;
     margin-right: auto;
 }
-.header ul {
-    margin: 0px;
-    padding: 0px;
-}
-.header li {
-    display: inline;
-}
 .header, .footer {
     border: 1px solid black;
 }
